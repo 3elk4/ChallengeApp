@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="login-box">
+    <h2>Login</h2>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="text"
+                 formControlName="email"
+                 class="form-control"
+                 [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
+
+          @if (submitted && f['email'].errors) {
+          <div class="invalid-feedback">
+            @if (f['email'].errors['required']) {
+            <div>Email is required</div>
+            }
+          </div>
+          }
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password"
+                 formControlName="password"
+                 class="form-control"
+                 [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" />
+
+          @if (submitted && f['password'].errors) {
+          <div class="invalid-feedback">
+            @if (f['password'].errors['required']) {
+            <div>Password is required</div>
+            }
+          </div>
+          }
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+        <span>
+          You don't have account yet?'
+          <a routerLink="/register">signIn</a>
+        </span>
+      </div>
+    </form>
+  </div>
+
+</div>
+

@@ -1,0 +1,39 @@
+<h1 id="tableLabel">Challenges</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="challenges.length === 0"><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationangular">https://aka.ms/jspsintegrationangular</a> for more details.</em></p>
+
+<button class="btn btn-success" mat-raised-button (click)="createChallenge()"> Create </button>
+
+<table *ngIf="challenges">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Public/Private</th>
+
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let challenge of challenges">
+      <td>{{ challenge.title }}</td>
+      <td>{{ challenge.description }}</td>
+      <td>{{ challenge.type }}</td>
+
+
+      <td> <button (click)="showDetails(challenge.id)"> Details </button></td>
+      <td> <button (click)="archiveChallenge(challenge.id)"> Archive </button></td>
+      <td> <button (click)="editChallenge(challenge)"> Edit </button></td>
+      <td> <button (click)="changeTypeChallenge(challenge.id, challenge)"> ChangeType </button></td>
+      <td> <button class="btn btn-info" (click)="copyChallenge(challenge.id)"> Copy </button></td>
+      <td> <button class="btn btn-danger" (click)="deleteChallenge(challenge.id)"> Delete </button></td>
+    </tr>
+  </tbody>
+</table>
