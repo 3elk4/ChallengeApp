@@ -5,3 +5,6 @@ Application/bin
 Application/obj
 Infrastructure/bin
 Infrastructure/obj
+ChallengeApp.Server/bin
+ChallengeApp.Server/obj
+ChallengeApp.Server/ChallengeApp.Server.csproj.user
