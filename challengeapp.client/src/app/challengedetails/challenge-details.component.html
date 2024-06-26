@@ -1,0 +1,34 @@
+
+<h3> {{ challangeDetails.title }} </h3>
+<p> {{ challangeDetails.description }} </p>
+<p> {{ challangeDetails.type }}</p>
+
+<p *ngIf="challangeDetails.chores.length === 0"><em> There's no chores added now to challenge. </em></p>
+<button class="btn btn-success" mat-raised-button (click)="createChore()"> Create </button>
+<table *ngIf="challangeDetails.chores">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Points</th>
+      <th>Difficulty</th>
+      <th>Completed</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let chore of challangeDetails.chores">
+        <td>{{ chore.title }}</td>
+        <td>{{ chore.description }}</td>
+        <td>{{ chore.points }}</td>
+        <td>{{ chore.difficulty }}</td>
+        <td>{{ chore.completed }}</td>
+
+        <td> <button (click)="completeChore(chore.id)"> Complete </button></td>
+        <td> <button (click)="editChore(chore)"> Edit </button></td>
+        <td> <button class="btn btn-danger" (click)="deleteChore(chore.id)"> Delete </button></td>
+  </tr>
+  </tbody>
+  </table>
