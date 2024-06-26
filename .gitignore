@@ -3,3 +3,5 @@ Domain/bin
 Domain/obj
 Application/bin
 Application/obj
+Infrastructure/bin
+Infrastructure/obj
